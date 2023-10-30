@@ -27,5 +27,12 @@ for face in r_out['FaceDetails']:
 
     draw.rectangle([(left, top), (left+width, top+height)], outline='lime', width=2)
 
+    # 目の部分に黒い矩形を描画
+    for parts in face['Landmarks']:
+        if parts['Type'] == 'eyeLeft':
+            left_eye_x = int(parts['X'] *w)
+            left_eye_y = int(parts['Y'] *h)
+            draw.rectangle([(left_eye_x - 15, left_eye_y - 15), (left_eye_x + width*0.6, left_eye_y + 15)], fill='black')
+
 in_img.save('show_' + f_img)
 
