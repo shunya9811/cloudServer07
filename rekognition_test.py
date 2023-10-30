@@ -34,5 +34,8 @@ for face in r_out['FaceDetails']:
       left_eye_x = int(parts['X'] *w)
       left_eye_y = int(parts['Y'] *h)
       draw.rectangle([(left_eye_x - 15, left_eye_y - 15), (left_eye_x + width*0.6, left_eye_y + 15)], fill='black')
+    
+    # 顔パーツ部分は小さい円を描画する
+    draw.ellipse((int(parts['X']*w), int(parts['Y']*h), int(parts['X']*w)+5, int(parts['Y']*h)+5), outline = 'black', fill = 'black')
 
 gray_img.save('show_' + f_img)
