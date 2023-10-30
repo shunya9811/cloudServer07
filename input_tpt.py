@@ -48,7 +48,6 @@ def transcribe():
     	MediaFormat='mp3',
     	LanguageCode='en-US'
     )
-    pprint.pprint(t_out)
     
     while True:
         t_out = t_obj.get_transcription_job(TranscriptionJobName=jobID)
@@ -57,7 +56,6 @@ def transcribe():
             break
         time.sleep(5)
     	
-    print(status)
     pprint.pprint(t_out)
 
 
