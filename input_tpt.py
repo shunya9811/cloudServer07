@@ -62,6 +62,8 @@ def transcribe():
 
 
 if __name__ == "__main__":
+    # 対象となる文章を引数として受ける
+    # もし文章がなければエラー処理
     if len(sys.argv) != 2:
         print("Usage: {} [sentence]".format(sys.argv[0]))
         sys.exit()
