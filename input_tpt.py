@@ -67,5 +67,6 @@ if __name__ == "__main__":
         sys.exit()
     
     translated_text = translate()
+    print(translated_text)
     polly(translated_text)
     transcribe()

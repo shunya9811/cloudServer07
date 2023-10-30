@@ -25,7 +25,7 @@ emotions = r_out['FaceDetails'][0]['Emotions']
 
 # テキストを画像に感情認識結果を描画
 text = '\n'.join([f"{emotion['Type']}: {int(emotion['Confidence'])}" for emotion in emotions])
-draw.text((10, 10), text, fill='red')  
+draw.text((10, 10), text, fill='black')  
 
 for face in r_out['FaceDetails']:
   box = face['BoundingBox']
@@ -41,7 +41,7 @@ for face in r_out['FaceDetails']:
     if parts['Type'] == 'eyeLeft':
       left_eye_x = int(parts['X'] *w)
       left_eye_y = int(parts['Y'] *h)
-      draw.rectangle([(left_eye_x - 15, left_eye_y - 15), (left_eye_x + width*0.6, left_eye_y + 15)], fill='black')
+      draw.rectangle([(left_eye_x - width*0.1, left_eye_y - width*0.1), (left_eye_x + width*0.6, left_eye_y + width*0.1)], fill='black')
     
     # 顔パーツ部分は小さい円を描画する
     draw.ellipse((int(parts['X']*w), int(parts['Y']*h), int(parts['X']*w)+5, int(parts['Y']*h)+5), outline = 'black', fill = 'black')
