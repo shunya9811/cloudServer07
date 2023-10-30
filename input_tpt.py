@@ -51,11 +51,11 @@ def transcribe():
     pprint.pprint(t_out)
     
     while True:
-    	t_out = t_obj.get_transcription_job(TranscriptionJobName=jobID)
+        t_out = t_obj.get_transcription_job(TranscriptionJobName=jobID)
         status = t_out['TranscriptionJob']['TranscriptionJobStatus']
         if status != 'IN_PROGRESS':
-    		break
-        time.sleep(8)
+            break
+        time.sleep(5)
     	
     print(status)
     pprint.pprint(t_out)
