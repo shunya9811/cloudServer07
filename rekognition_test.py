@@ -15,9 +15,17 @@ with open(f_img, 'rb') as file:
   )
   print(json.dumps(r_out, indent=2))
   
+# グレースケールに変換
 gray_img = in_img.convert('L')
 
 draw = ImageDraw.Draw(gray_img)
+
+# 感情認識結果をテキストとして取得
+emotions = r_out['FaceDetails'][0]['Emotions']
+
+# テキストを画像に描画
+text = '\n'.join([f"{emotion['Type']}: {int(emotion['Confidence'])}" for emotion in emotions])
+draw.text((10, 10), text, fill='red')  # 左上にテキストを描画
 
 for face in r_out['FaceDetails']:
   box = face['BoundingBox']
